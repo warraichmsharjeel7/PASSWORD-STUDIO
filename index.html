@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101329">
+  <title>Sharjeel — Password Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body data-theme="midnight">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-grid"></div>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Prism Password Studio home">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 21 7v10l-9 5-9-5V7z" />
+            <path d="m3.5 7 8.5 5 8.5-5M12 12v10" />
+          </svg></span>
+        <span>SHARJEEL7<span class="brand-dot">.</span><small> PASSWORD STUDIO</small></span>
+      </a>
+      <div class="header-actions">
+        <span class="local-badge"><i></i> LOCAL &amp; PRIVATE</span>
+        <label class="theme-picker"><span class="theme-icon">◐</span><select id="themeSelect" aria-label="Choose theme">
+            <option value="midnight">Midnight</option>
+            <option value="aurora">Aurora</option>
+            <option value="sunset">Sunset</option>
+            <option value="light">Light</option>
+          </select><span class="select-caret">⌄</span></label>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span>✦</span> SIMPLE. SECURE. YOURS.</div>
+      <h1>Password power,<br><span>your way.</span></h1>
+      <p>Build a password that fits your needs. Generate one instantly or type your own and check its strength live.</p>
+      <div class="feature-pills"><span>✧ Live strength check</span><span>⌘ One-click copy</span><span>◈ Theme
+          switcher</span></div>
+    </section>
+
+    <section class="studio">
+      <div class="panel main-panel">
+        <div class="panel-heading">
+          <div><span class="step-label">01 / YOUR PASSWORD</span>
+            <h2>Make it yours</h2>
+          </div>
+          <span class="edit-badge"><span class="edit-dot"></span> EDITABLE</span>
+        </div>
+
+        <label class="field-label" for="passwordInput">Password text <span>Type your own or generate one
+            below</span></label>
+        <div class="password-field" id="passwordField">
+          <span class="field-lock" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <rect x="4" y="10" width="16" height="11" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg></span>
+          <input id="passwordInput" type="text" value="" placeholder="Type or generate a password..." autocomplete="off"
+            spellcheck="false" aria-label="Edit your password">
+          <button id="visibilityBtn" class="icon-btn" type="button" title="Hide password"
+            aria-label="Hide password"><svg id="eyeSvg" viewBox="0 0 24 24">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg></button>
+          <button id="copyBtn" class="copy-btn" type="button"><svg viewBox="0 0 24 24">
+              <rect x="8" y="8" width="12" height="12" rx="2" />
+              <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+            </svg><span id="copyText">Copy</span></button>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-head">
+            <div><span class="mini-label">LIVE ANALYSIS</span>
+              <h3>Password strength</h3>
+            </div><strong id="strengthText" class="strength-word">Waiting...</strong>
+          </div>
+          <div class="strength-meter" id="strengthMeter" role="progressbar" aria-label="Password strength"
+            aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+            <span></span><span></span><span></span><span></span><span></span></div>
+          <div class="strength-foot"><span id="strengthMessage">Start typing to analyze your password.</span><span
+              id="charCount">0 chars</span></div>
+        </div>
+
+        <div class="requirements">
+          <div class="req-title">CHECKLIST <span>Live as you type</span></div>
+          <div class="req-grid">
+            <div class="req-item" id="reqLength"><span class="req-symbol">↔</span><span>8+ characters</span><b>✓</b>
+            </div>
+            <div class="req-item" id="reqUpper"><span class="req-symbol">A</span><span>Uppercase letter</span><b>✓</b>
+            </div>
+            <div class="req-item" id="reqLower"><span class="req-symbol">a</span><span>Lowercase letter</span><b>✓</b>
+            </div>
+            <div class="req-item" id="reqNumber"><span class="req-symbol">123</span><span>At least one
+                number</span><b>✓</b></div>
+            <div class="req-item" id="reqSymbol"><span class="req-symbol">#@</span><span>Special
+                character</span><b>✓</b></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel settings-panel">
+        <div class="panel-heading">
+          <div><span class="step-label">02 / GENERATOR</span>
+            <h2>Fine-tune it</h2>
+          </div>
+          <span class="settings-emoji">✳</span>
+        </div>
+        <div class="length-heading"><label for="lengthSlider">Password length</label><output id="lengthValue"
+            for="lengthSlider">16</output></div>
+        <input id="lengthSlider" class="length-slider" type="range" min="4" max="40" value="16">
+        <div class="range-labels"><span>4</span><span>20</span><span>40</span></div>
+
+        <div class="options-heading">INCLUDE CHARACTERS <span>Choose any mix</span></div>
+        <div class="toggle-list">
+          <label class="toggle-row" for="upperToggle"><span class="toggle-letter upper">A</span><span
+              class="toggle-copy"><b>Uppercase</b><small>A B C ... Z</small></span><input id="upperToggle"
+              type="checkbox" checked><span class="switch"></span></label>
+          <label class="toggle-row" for="lowerToggle"><span class="toggle-letter lower">a</span><span
+              class="toggle-copy"><b>Lowercase</b><small>a b c ... z</small></span><input id="lowerToggle"
+              type="checkbox" checked><span class="switch"></span></label>
+          <label class="toggle-row" for="numberToggle"><span class="toggle-letter number">123</span><span
+              class="toggle-copy"><b>Numbers</b><small>0 1 2 ... 9</small></span><input id="numberToggle"
+              type="checkbox" checked><span class="switch"></span></label>
+          <label class="toggle-row" for="symbolToggle"><span class="toggle-letter symbol">!@#</span><span
+              class="toggle-copy"><b>Symbols</b><small>! @ # $ % &amp;</small></span><input id="symbolToggle"
+              type="checkbox" checked><span class="switch"></span></label>
+        </div>
+        <label class="exclude-row" for="excludeToggle"><input id="excludeToggle" type="checkbox" checked><span
+            class="tiny-check">✓</span><span>Exclude similar characters <small>i, l, 1, O, 0</small></span></label>
+        <button id="generateBtn" class="generate-btn" type="button"><span>✦</span> Generate password <b>↗</b></button>
+        <button id="refreshBtn" class="refresh-btn" type="button"><span>⟳</span> Generate another</button>
+        <p class="privacy-note"><svg viewBox="0 0 24 24">
+            <rect x="4" y="10" width="16" height="11" rx="2" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+          </svg> Your password stays in this browser.</p>
+      </aside>
+    </section>
+
+    <footer><span class="footer-brand">SHARJEEL7<span>.</span> PASSWORD STUDIO</span><span>Designed for your digital
+        peace of mind <b>✦</b></span></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+</body>
+
+</html>
